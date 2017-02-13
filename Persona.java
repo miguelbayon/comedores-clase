@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Persona
 {
     private String nombre;
@@ -8,6 +10,9 @@ public class Persona
     private int caloriasIngeridas;
     private int metabasal;
     private Comida comidaMasCaloricaTomada;		
+    private ArrayList<Comida> comidasIngeridas;
+
+    
 
     public Persona(String nombre, boolean esHombre, int peso, int estatura, int edad)
     {
@@ -18,6 +23,7 @@ public class Persona
         this.edad = edad;  
         caloriasIngeridas = 0;
         comidaMasCaloricaTomada = null;
+        comidasIngeridas = new ArrayList<Comida>();
         if(esHombre){
             metabasal= (10*peso)+(6*estatura)+(5*edad)+5;}
         else{
@@ -28,9 +34,11 @@ public class Persona
 
     public int comer(Comida comida){
         int calorias = -1;
+
         if(caloriasIngeridas <= metabasal){
             calorias = comida.getCalorias();
             caloriasIngeridas += calorias;
+            comidasIngeridas.add(comida);
 
             if(comidaMasCaloricaTomada != null)
             {
@@ -90,8 +98,21 @@ public class Persona
         return nombreComidaADevolver;
     }
 
+    
+    public void verListadoComidasIngeridas() 
+    {
+        
+        
+    }
 
 }
+
+
+
+
+
+
+
 
 
 
