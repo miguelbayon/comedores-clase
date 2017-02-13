@@ -77,7 +77,13 @@ public class Persona
     
     public String getAlimentoMasCaloricoConsumido()
     {
-        return comidaMasCaloricaTomada.getNombre();
+        String nombreComidaADevolver = null;
+        
+        if (comidaMasCaloricaTomada != null) {
+            nombreComidaADevolver = comidaMasCaloricaTomada.getNombre();
+        }
+        
+        return nombreComidaADevolver;
     }
 
 
